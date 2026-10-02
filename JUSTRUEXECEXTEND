@@ -1,583 +1,76 @@
--- Justru Executor // Core System
+local P,UIS,SG,LP=game:GetService("Players"),game:GetService("UserInputService"),game:GetService("CoreGui"),game:GetService("Players").LocalPlayer
+pcall(function()if makefolder and isfolder and not isfolder("JustruWorkspace")then makefolder("JustruWorkspace")end end)
+local S=Instance.new("ScreenGui",SG.CoreGui or LP:WaitForChild("PlayerGui")) S.Name,S.ResetOnSpawn="JustruExecutor",false
+local TI=Instance.new("TextButton",S) TI.Size,TI.Position,TI.BackgroundColor3,TI.TextColor3,TI.TextSize,TI.Font,TI.Text=UDim2.new(0,48,0,48),UDim2.new(0,20,0.5,-100),Color3.fromRGB(24,24,24),Color3.fromRGB(0,220,130),20,Enum.Font.GothamBold,"⚡"
+Instance.new("UICorner",TI).CornerRadius=UDim.new(0,10) local TSt=Instance.new("UIStroke",TI) TSt.Color,TSt.Transparency,TSt.Thickness=Color3.fromRGB(0,220,130),0.5,1.5
+local MF=Instance.new("Frame",S) MF.Size,MF.Position,MF.BackgroundColor3,MF.BorderSizePixel=UDim2.new(0,720,0,360),UDim2.new(0.5,-360,0.5,-180),Color3.fromRGB(15,15,15),0
+Instance.new("UICorner",MF).CornerRadius=UDim.new(0,8) local MSt=Instance.new("UIStroke",MF) MSt.Color,MSt.Thickness=Color3.fromRGB(45,45,45),1.5
+local TB=Instance.new("Frame",MF) TB.Size,TB.BackgroundColor3,TB.BorderSizePixel=UDim2.new(1,0,0,36),Color3.fromRGB(20,20,20),0
+Instance.new("UICorner",TB).CornerRadius=UDim.new(0,8)
+local TL=Instance.new("TextLabel",TB) TL.Size,TL.Position,TL.BackgroundTransparency,TL.TextColor3,TL.TextSize,TL.Font,TL.TextXAlignment,TL.Text=UDim2.new(1,-100,1,0),UDim2.new(0,14,0,0),1,Color3.fromRGB(240,240,240),13,Enum.Font.Code,Enum.TextXAlignment.Left,"⚡ JUSTRU // EXPLOIT CORE"
+local CB=Instance.new("TextButton",TB) CB.Size,CB.Position,CB.BackgroundTransparency,CB.TextColor3,CB.TextSize,CB.Font,CB.Text=UDim2.new(0,36,0,36),UDim2.new(1,-36,0,0),1,Color3.fromRGB(180,180,180),14,Enum.Font.GothamBold,"✕"
+CB.MouseButton1Click:Connect(function() MF.Visible=false end)
+local NV=Instance.new("Frame",MF) NV.Size,NV.Position,NV.BackgroundColor3,NV.BorderSizePixel=UDim2.new(0,135,1,-36),UDim2.new(0,0,0,36),Color3.fromRGB(18,18,18),0
+local NL=Instance.new("UIListLayout",NV) NL.SortOrder,NL.Padding=Enum.SortOrder.LayoutOrder,UDim.new(0,4)
+local function cNB(n,t,o) local b=Instance.new("TextButton",NV) b.Name,b.Size,b.BackgroundTransparency,b.TextColor3,b.TextSize,b.Font,b.Text,b.LayoutOrder=n,UDim2.new(1,0,0,40),1,Color3.fromRGB(160,160,160),12,Enum.Font.Code,t,o return b end
+local tE,tW,tS=cNB("TabEditor","💻 Editor",1),cNB("TabWorkspace","📂 Workspace",2),cNB("TabSettings","⚙ Settings",3)
+local PC=Instance.new("Frame",NV) PC.Size,PC.Position,PC.BackgroundColor3,PC.BorderSizePixel=UDim2.new(1,0,0,50),UDim2.new(0,0,1,-50),Color3.fromRGB(14,14,14),0
+local PA=Instance.new("ImageLabel",PC) PA.Size,PA.Position,PA.BackgroundTransparency,PA.Image=UDim2.new(0,32,0,32),UDim2.new(0,8,0.5,-16),1,"rbxasset://textures/ui/GuiImagePlaceholder.png"
+Instance.new("UICorner",PA).CornerRadius=UDim.new(1,0)
+pcall(function() PA.Image=P:GetUserThumbnailAsync(LP.UserId,Enum.ThumbnailType.HeadShot,Enum.ThumbnailSize.Size42x42) end)
+local PN=Instance.new("TextLabel",PC) PN.Size,PN.Position,PN.BackgroundTransparency,PN.TextColor3,PN.TextSize,PN.Font,PN.TextXAlignment,PN.TextTruncate,PN.Text=UDim2.new(1,-48,1,0),UDim2.new(0,46,0,0),1,Color3.fromRGB(220,220,220),11,Enum.Font.Code,Enum.TextXAlignment.Left,Enum.TextTruncate.AtEnd,LP.Name
+local Cnt=Instance.new("Frame",MF) Cnt.Size,Cnt.Position,Cnt.BackgroundTransparency=UDim2.new(1,-135,1,-36),UDim2.new(0,135,0,36),1
+local EP=Instance.new("Frame",Cnt) EP.Size,EP.BackgroundTransparency,EP.Visible,EP.Parent=UDim2.new(1,0,1,0),1,true,Cnt
+local UB=Instance.new("Frame",EP) UB.Size,UB.Position,UB.BackgroundTransparency=UDim2.new(1,-20,0,32),UDim2.new(0,10,0,10),1
+local UBl=Instance.new("UIListLayout",UB) UBl.FillDirection,UBl.SortOrder,UBl.Padding=Enum.FillDirection.Horizontal,Enum.SortOrder.LayoutOrder,UDim.new(0,8)
+local SH=Instance.new("TextButton",UB) SH.Size,SH.BackgroundColor3,SH.TextColor3,SH.TextSize,SH.Font,SH.Text,SH.LayoutOrder=UDim2.new(0,165,0,32),Color3.fromRGB(30,80,60),Color3.fromRGB(0,255,170),12,Enum.Font.Code,"🚀 Justru Script Hub",1
+Instance.new("UICorner",SH).CornerRadius=UDim.new(0,6)
+local CX=Instance.new("TextBox",EP) CX.Size,CX.Position,CX.BackgroundColor3,CX.TextColor3,CX.TextSize,CX.Font,CX.MultiLine,CX.ClearTextOnFocus,CX.TextXAlignment,CX.TextYAlignment,CX.PlaceholderText,CX.Text=UDim2.new(1,-20,0,215),UDim2.new(0,10,0,50),Color3.fromRGB(10,10,10),Color3.fromRGB(210,210,210),13,Enum.Font.Code,true,false,Enum.TextXAlignment.Left,Enum.TextYAlignment.Top,"-- Type your script here...","print(\"Justru Core Ready\")"
+Instance.new("UICorner",CX).CornerRadius=UDim.new(0,6) local CSt=Instance.new("UIStroke",CX) CSt.Color=Color3.fromRGB(30,30,30) CSt.Parent=CX
+local function cBtn(s,p,bg,tc,txt) local b=Instance.new("TextButton",EP) b.Size,b.Position,b.BackgroundColor3,b.TextColor3,b.TextSize,b.Font,b.Text=s,p,bg,tc,12,Enum.Font.Code,txt Instance.new("UICorner",b).CornerRadius=UDim.new(0,6) return b end
+local ExB,ClB,SvB=cBtn(UDim2.new(0,105,0,32),UDim2.new(0,10,1,-42),Color3.fromRGB(25,25,25),Color3.fromRGB(0,220,130),"▶ Execute"),cBtn(UDim2.new(0,90,0,32),UDim2.new(0,120,1,-42),Color3.fromRGB(25,25,25),Color3.fromRGB(220,220,220),"🧹 Clear"),cBtn(UDim2.new(0,90,0,32),UDim2.new(0,215,1,-42),Color3.fromRGB(0,110,55),Color3.fromRGB(255,255,255),"💾 Save")
+local FNB=Instance.new("TextBox",EP) FNB.Size,FNB.Position,FNB.BackgroundColor3,FNB.TextColor3,FNB.TextSize,FNB.Font,FNB.PlaceholderText,FNB.Text=UDim2.new(0,135,0,32),UDim2.new(0,310,1,-42),Color3.fromRGB(10,10,10),Color3.fromRGB(200,200,200),12,Enum.Font.Code,"script_name.lua","" Instance.new("UICorner",FNB).CornerRadius=UDim.new(0,6)
+local WP=Instance.new("Frame",Cnt) WP.Size,WP.BackgroundTransparency,WP.Visible,WP.Parent=UDim2.new(1,0,1,0),1,false,Cnt
+local WLS=Instance.new("ScrollingFrame",WP) WLS.Size,WLS.Position,WLS.BackgroundTransparency,WLS.CanvasSize,WLS.AutomaticCanvasSize,WLS.ScrollBarThickness=UDim2.new(1,-20,1,-20),UDim2.new(0,10,0,10),1,UDim2.new(0,0,0,0),Enum.AutomaticSize.Y,4
+local WLL=Instance.new("UIListLayout",WLS) WLL.SortOrder,WLL.Padding=Enum.SortOrder.LayoutOrder,UDim.new(0,6)
+WLL:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function() WLS.CanvasSize=UDim2.new(0,0,0,WLL.AbsoluteContentSize.Y+20) end)
+local SP=Instance.new("Frame",Cnt) SP.Size,SP.BackgroundTransparency,SP.Visible,SP.Parent=UDim2.new(1,0,1,0),1,false,Cnt
+local SS=Instance.new("ScrollingFrame",SP) SS.Size,SS.BackgroundTransparency,SS.CanvasSize,SS.AutomaticCanvasSize,SS.ScrollBarThickness=UDim2.new(1,0,1,0),1,UDim2.new(0,0,0,0),Enum.AutomaticSize.Y,4
+local SSL=Instance.new("UIListLayout",SS) SSL.SortOrder,SSL.Padding=Enum.SortOrder.LayoutOrder,UDim.new(0,8)
+SSL:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function() SS.CanvasSize=UDim2.new(0,0,0,SSL.AbsoluteContentSize.Y+20) end)
+local function cSH(txt) local l=Instance.new("TextLabel",SS) l.Size,l.BackgroundTransparency,l.TextColor3,l.TextSize,l.Font,l.TextXAlignment,l.Text=UDim2.new(1,-20,0,25),1,Color3.fromRGB(0,180,255),11,Enum.Font.Code,Enum.TextXAlignment.Left,"  "..string.upper(txt) end
+cSH("General Preferences")
+local function cST(txt,def) local tc=Instance.new("Frame",SS) tc.Size,tc.BackgroundColor3,tc.BorderSizePixel=UDim2.new(1,-20,0,42),Color3.fromRGB(20,20,20),0 Instance.new("UICorner",tc).CornerRadius=UDim.new(0,6) local l=Instance.new("TextLabel",tc) l.Size,l.Position,l.BackgroundTransparency,l.TextColor3,l.TextSize,l.Font,l.TextXAlignment,l.Text=UDim2.new(1,-65,1,0),UDim2.new(0,14,0,0),1,Color3.fromRGB(210,210,210),12,Enum.Font.Code,Enum.TextXAlignment.Left,txt local b=Instance.new("TextButton",tc) b.Size,b.Position,b.BackgroundColor3,b.Text=UDim2.new(0,42,0,22),UDim2.new(1,-52,0.5,-11),def and Color3.fromRGB(0,180,95) or Color3.fromRGB(45,45,45),"" Instance.new("UICorner",b).CornerRadius=UDim.new(1,0) local a=def b.MouseButton1Click:Connect(function() a=not a b.BackgroundColor3=a and Color3.fromRGB(0,180,95) or Color3.fromRGB(45,45,45) end) end
+cST("Auto-Save Scripts on Exit",true) cST("Bypass Client Anti-Cheat Checks",true)
+cSH("Workspace Storage") cST("Enable Workspace File Indexing",true)
+cSH("Visual Status")
+local SC=Instance.new("Frame",SS) SC.Size,SC.BackgroundColor3,SC.BorderSizePixel=UDim2.new(1,-20,0,85),Color3.fromRGB(18,18,18),0 Instance.new("UICorner",SC).CornerRadius=UDim.new(0,6) local SCSt=Instance.new("UIStroke",SC) SCSt.Color=Color3.fromRGB(35,35,35) SCSt.Parent=SC
+local SI=Instance.new("Frame",SC) SI.Size,SI.Position,SI.BackgroundColor3,SI.BorderSizePixel=UDim2.new(0,10,0,10),UDim2.new(0,14,0,16),Color3.fromRGB(0,220,100),0 Instance.new("UICorner",SI).CornerRadius=UDim.new(1,0)
+local STi=Instance.new("TextLabel",SC) STi.Size,STi.Position,STi.BackgroundTransparency,STi.TextColor3,STi.TextSize,STi.Font,STi.TextXAlignment,STi.Text=UDim2.new(1,-40,0,20),UDim2.new(0,32,0,11),1,Color3.fromRGB(240,240,240),12,Enum.Font.Code,Enum.TextXAlignment.Left,"Directory Status: Active"
+local SDe=Instance.new("TextLabel",SC) SDe.Size,SDe.Position,SDe.BackgroundTransparency,SDe.TextColor3,SDe.TextSize,SDe.Font,SDe.TextXAlignment,SDe.TextYAlignment,SDe.Text=UDim2.new(1,-30,0,40),UDim2.new(0,14,0,35),1,Color3.fromRGB(140,140,140),11,Enum.Font.Code,Enum.TextXAlignment.Left,Enum.TextYAlignment.Top,"Path: JustruWorkspace/\nIndexed Files: 0 detected"
+local function uSt() pcall(function() if listfiles then local f=listfiles("JustruWorkspace") SDe.Text="Path: JustruWorkspace/\nIndexed Files: "..tostring(f and #f or 0).." detected" end end) end
+local function sTab(p) EP.Visible,WP.Visible,SP.Visible=(p==EP),(p==WP),(p==SP) tE.TextColor3=(p==EP) and Color3.fromRGB(0,220,130) or Color3.fromRGB(160,160,160) tW.TextColor3=(p==WP) and Color3.fromRGB(0,220,130) or Color3.fromRGB(160,160,160) tS.TextColor3=(p==SP) and Color3.fromRGB(0,220,130) or Color3.fromRGB(160,160,160) if p==SP then uSt() end end
+tE.MouseButton1Click:Connect(function() sTab(EP) end) tW.MouseButton1Click:Connect(function() sTab(WP) refreshFL() end) tS.MouseButton1Click:Connect(function() sTab(SP) end)
+TI.MouseButton1Click:Connect(function() MF.Visible=not MF.Visible end)
+function refreshFL() for _,c in ipairs(WLS:GetChildren()) do if c:IsA("TextButton") then c:Destroy() end end pcall(function() if listfiles then local fs=listfiles("JustruWorkspace") if fs then for _,fp in ipairs(fs) do local fn=fp:match("([^/]+)$") or fp:match("([^\\]+)$") local fb=Instance.new("TextButton",WLS) fb.Size,fb.BackgroundColor3,fb.TextColor3,fb.TextSize,fb.Font,fb.Text,fb.TextXAlignment=UDim2.new(1,0,0,34),Color3.fromRGB(22,22,22),Color3.fromRGB(210,210,210),12,Enum.Font.Code,"  📂 "..(fn or fp),Enum.TextXAlignment.Left Instance.new("UICorner",fb).CornerRadius=UDim.new(0,6) fb.MouseButton1Click:Connect(function() pcall(function() if readfile then local ct=readfile(fp) if ct then CX.Text=ct FNB.Text=fn sTab(EP) end end end) end) end end end end) end
+SvB.MouseButton1Click:Connect(function() local fn=FNB.Text if fn=="" then fn="script_"..math.random(1000,9999)..".lua" FNB.Text=fn end if not string.match(fn,"%.lua$") then fn=fn..".lua" end pcall(function() if writefile then writefile("JustruWorkspace/"..fn,CX.Text) refreshFL() else CX.Text="-- Error: writefile unsupported." end end) end)
+ExB.MouseButton1Click:Connect(function() local fnc,err=loadstring(CX.Text) if fnc then pcall(fnc) else warn("[Compile Error]: "..tostring(err)) end end)
+SH.MouseButton1Click:Connect(function() pcall(function() loadstring(game:HttpGet("https://raw.githubusercontent.com/putrijelitaasia10-byte/JustruScriptzHub/refs/heads/main/JustruScriptzHubz"))() end) end)
+ClB.MouseButton1Click:Connect(function() CX.Text="" FNB.Text="" end)
+local dg,dSt,sPos TB.InputBegan:Connect(function(i) if i.UserInputType==Enum.UserInputType.MouseButton1 or i.UserInputType==Enum.UserInputType.Touch then dg=true dSt=i.Position sPos=MF.Position end end)
+UIS.InputChanged:Connect(function(i) if dg and (i.UserInputType==Enum.UserInputType.MouseMovement or i.UserInputType==Enum.UserInputType.Touch) then local d=i.Position-dSt MF.Position=UDim2.new(sPos.X.Scale,sPos.X.Offset+d.X,sPos.Y.Scale,sPos.Y.Offset+d.Y) end end)
+UIS.InputEnded:Connect(function(i) if i.UserInputType==EnumIf you're still running into character limit issues or execution blocks, try loading the script remotely from a raw text host or GitHub link instead of pasting it directly. 
 
-local Players = game:GetService("Players")
-local UserInputService = game:GetService("UserInputService")
-local RunService = game:GetService("RunService")
-local CoreGui = game:GetService("CoreGui")
-local localPlayer = Players.LocalPlayer
-local camera = workspace.CurrentCamera
+Alternatively, you can load a minimal bootstrap stub that fetches the full code dynamically:
 
--- Safe Workspace Folder Initialization
-pcall(function()
-	if makefolder and isfolder and not isfolder("JustruWorkspace") then
-		makefolder("JustruWorkspace")
-	end
+```lua
+local success, result = pcall(function()
+    return game:HttpGet("[https://raw.githubusercontent.com/putrijelitaasia10-byte/JustruScriptzHub/refs/heads/main/JustruScriptzHubz](https://raw.githubusercontent.com/putrijelitaasia10-byte/JustruScriptzHub/refs/heads/main/JustruScriptzHubz)")
 end)
 
--- Create ScreenGui safely with fallback
-local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "JustruExecutor"
-screenGui.ResetOnSpawn = false
-pcall(function()
-	screenGui.Parent = CoreGui
-end)
-if not screenGui.Parent then
-	screenGui.Parent = localPlayer:WaitForChild("PlayerGui")
+if success and result then
+    loadstring(result)()
+else
+    warn("Failed to load script: " .. tostring(result))
 end
 
--- Floating Toggle Icon Button ("⚡")
-local toggleIcon = Instance.new("TextButton")
-toggleIcon.Name = "ToggleIcon"
-toggleIcon.Size = UDim2.new(0, 48, 0, 48)
-toggleIcon.Position = UDim2.new(0, 20, 0.5, -100)
-toggleIcon.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-toggleIcon.TextColor3 = Color3.fromRGB(0, 220, 130)
-toggleIcon.TextSize = 20
-toggleIcon.Font = Enum.Font.GothamBold
-toggleIcon.Text = "⚡"
-toggleIcon.Parent = screenGui
-
-local iconCorner = Instance.new("UICorner")
-iconCorner.CornerRadius = UDim.new(0, 10)
-iconCorner.Parent = toggleIcon
-
-local iconStroke = Instance.new("UIStroke")
-iconStroke.Color = Color3.fromRGB(0, 220, 130)
-iconStroke.Transparency = 0.5
-iconStroke.Thickness = 1.5
-iconStroke.Parent = toggleIcon
-
--- Main Frame (Cyber-Dark Theme)
-local mainFrame = Instance.new("Frame")
-mainFrame.Name = "MainFrame"
-mainFrame.Size = UDim2.new(0, 720, 0, 360)
-mainFrame.Position = UDim2.new(0.5, -360, 0.5, -180)
-mainFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-mainFrame.BackgroundTransparency = 0
-mainFrame.BorderSizePixel = 0
-mainFrame.Visible = true
-mainFrame.Parent = screenGui
-
-local mainCorner = Instance.new("UICorner")
-mainCorner.CornerRadius = UDim.new(0, 8)
-mainCorner.Parent = mainFrame
-
-local mainStroke = Instance.new("UIStroke")
-mainStroke.Color = Color3.fromRGB(45, 45, 45)
-mainStroke.Thickness = 1.5
-mainStroke.Parent = mainFrame
-
--- Top Bar (Draggable Area & Window Controls)
-local topBar = Instance.new("Frame")
-topBar.Name = "TopBar"
-topBar.Size = UDim2.new(1, 0, 0, 36)
-topBar.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-topBar.BackgroundTransparency = 0
-topBar.BorderSizePixel = 0
-topBar.Parent = mainFrame
-
-local topCorner = Instance.new("UICorner")
-topCorner.CornerRadius = UDim.new(0, 8)
-topCorner.Parent = topBar
-
-local titleLabel = Instance.new("TextLabel")
-titleLabel.Size = UDim2.new(1, -100, 1, 0)
-titleLabel.Position = UDim2.new(0, 14, 0, 0)
-titleLabel.BackgroundTransparency = 1
-titleLabel.TextColor3 = Color3.fromRGB(240, 240, 240)
-titleLabel.TextSize = 13
-titleLabel.Font = Enum.Font.Code
-titleLabel.TextXAlignment = Enum.TextXAlignment.Left
-titleLabel.Text = "⚡ JUSTRU // EXPLOIT CORE"
-titleLabel.Parent = topBar
-
-local closeBtn = Instance.new("TextButton")
-closeBtn.Size = UDim2.new(0, 36, 0, 36)
-closeBtn.Position = UDim2.new(1, -36, 0, 0)
-closeBtn.BackgroundTransparency = 1
-closeBtn.TextColor3 = Color3.fromRGB(180, 180, 180)
-closeBtn.TextSize = 14
-closeBtn.Font = Enum.Font.GothamBold
-closeBtn.Text = "✕"
-closeBtn.Parent = topBar
-
-closeBtn.MouseButton1Click:Connect(function()
-	mainFrame.Visible = false
-end)
-
--- Sidebar Navigation (3 Tabs)
-local navBar = Instance.new("Frame")
-navBar.Size = UDim2.new(0, 135, 1, -36)
-navBar.Position = UDim2.new(0, 0, 0, 36)
-navBar.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-navBar.BackgroundTransparency = 0
-navBar.BorderSizePixel = 0
-navBar.Parent = mainFrame
-
-local navList = Instance.new("UIListLayout")
-navList.SortOrder = Enum.SortOrder.LayoutOrder
-navList.Padding = UDim.new(0, 4)
-navList.Parent = navBar
-
-local function createNavButton(name, text, order)
-	local btn = Instance.new("TextButton")
-	btn.Name = name
-	btn.Size = UDim2.new(1, 0, 0, 40)
-	btn.BackgroundTransparency = 1
-	btn.TextColor3 = Color3.fromRGB(160, 160, 160)
-	btn.TextSize = 12
-	btn.Font = Enum.Font.Code
-	btn.Text = text
-	btn.LayoutOrder = order
-	btn.Parent = navBar
-	return btn
-end
-
-local tabEditorBtn = createNavButton("TabEditor", "💻 Editor", 1)
-local tabWorkspaceBtn = createNavButton("TabWorkspace", "📂 Workspace", 2)
-local tabSettingsBtn = createNavButton("TabSettings", "⚙️️ Settings", 3)
-
--- Content Container Frame
-local container = Instance.new("Frame")
-container.Size = UDim2.new(1, -135, 1, -36)
-container.Position = UDim2.new(0, 135, 0, 36)
-container.BackgroundTransparency = 1
-container.Parent = mainFrame
-
--------------------------------------------------------------------------
--- TAB 1: EDITOR PANEL
--------------------------------------------------------------------------
-local editorPanel = Instance.new("Frame")
-editorPanel.Size = UDim2.new(1, 0, 1, 0)
-editorPanel.BackgroundTransparency = 1
-editorPanel.Visible = true
-editorPanel.Parent = container
-
-local utilityBar = Instance.new("Frame")
-utilityBar.Size = UDim2.new(1, -20, 0, 32)
-utilityBar.Position = UDim2.new(0, 10, 0, 10)
-utilityBar.BackgroundTransparency = 1
-utilityBar.Parent = editorPanel
-
-local utilityList = Instance.new("UIListLayout")
-utilityList.FillDirection = Enum.FillDirection.Horizontal
-utilityList.SortOrder = Enum.SortOrder.LayoutOrder
-utilityList.Padding = UDim.new(0, 8)
-utilityList.Parent = utilityBar
-
--- Justru Script Hub Button
-local scriptHubBtn = Instance.new("TextButton")
-scriptHubBtn.Size = UDim2.new(0, 165, 0, 32)
-scriptHubBtn.BackgroundColor3 = Color3.fromRGB(30, 80, 60)
-scriptHubBtn.TextColor3 = Color3.fromRGB(0, 255, 170)
-scriptHubBtn.TextSize = 12
-scriptHubBtn.Font = Enum.Font.Code
-scriptHubBtn.Text = "🚀 Justru Script Hub"
-scriptHubBtn.LayoutOrder = 1
-scriptHubBtn.Parent = utilityBar
-
-local scriptHubCorner = Instance.new("UICorner")
-scriptHubCorner.CornerRadius = UDim.new(0, 6)
-scriptHubCorner.Parent = scriptHubBtn
-
-local codeBox = Instance.new("TextBox")
-codeBox.Size = UDim2.new(1, -20, 0, 215)
-codeBox.Position = UDim2.new(0, 10, 0, 50)
-codeBox.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
-codeBox.TextColor3 = Color3.fromRGB(210, 210, 210)
-codeBox.TextSize = 13
-codeBox.Font = Enum.Font.Code
-codeBox.MultiLine = true
-codeBox.ClearTextOnFocus = false
-codeBox.TextXAlignment = Enum.TextXAlignment.Left
-codeBox.TextYAlignment = Enum.TextYAlignment.Top
-codeBox.PlaceholderText = "-- Type your script here..."
-codeBox.Text = "print(\"Justru Core Ready\")"
-codeBox.Parent = editorPanel
-
-local boxCorner = Instance.new("UICorner")
-boxCorner.CornerRadius = UDim.new(0, 6)
-boxCorner.Parent = codeBox
-
-local boxStroke = Instance.new("UIStroke")
-boxStroke.Color = Color3.fromRGB(30, 30, 30)
-boxStroke.Parent = codeBox
-
-local executeBtn = Instance.new("TextButton")
-executeBtn.Size = UDim2.new(0, 105, 0, 32)
-executeBtn.Position = UDim2.new(0, 10, 1, -42)
-executeBtn.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-executeBtn.TextColor3 = Color3.fromRGB(0, 220, 130)
-executeBtn.TextSize = 12
-executeBtn.Font = Enum.Font.Code
-executeBtn.Text = "▶ Execute"
-executeBtn.Parent = editorPanel
-
-local execCorner = Instance.new("UICorner")
-execCorner.CornerRadius = UDim.new(0, 6)
-execCorner.Parent = executeBtn
-
-local clearBtn = Instance.new("TextButton")
-clearBtn.Size = UDim2.new(0, 90, 0, 32)
-clearBtn.Position = UDim2.new(0, 120, 1, -42)
-clearBtn.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-clearBtn.TextColor3 = Color3.fromRGB(220, 220, 220)
-clearBtn.TextSize = 12
-clearBtn.Font = Enum.Font.Code
-clearBtn.Text = "🧹 Clear"
-clearBtn.Parent = editorPanel
-
-local clearCorner = Instance.new("UICorner")
-clearCorner.CornerRadius = UDim.new(0, 6)
-clearCorner.Parent = clearBtn
-
-local saveBtn = Instance.new("TextButton")
-saveBtn.Size = UDim2.new(0, 90, 0, 32)
-saveBtn.Position = UDim2.new(0, 215, 1, -42)
-saveBtn.BackgroundColor3 = Color3.fromRGB(0, 110, 55)
-saveBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-saveBtn.TextSize = 12
-saveBtn.Font = Enum.Font.Code
-saveBtn.Text = "💾 Save"
-saveBtn.Parent = editorPanel
-
-local saveCorner = Instance.new("UICorner")
-saveCorner.CornerRadius = UDim.new(0, 6)
-saveCorner.Parent = saveBtn
-
-local fileNameBox = Instance.new("TextBox")
-fileNameBox.Size = UDim2.new(0, 135, 0, 32)
-fileNameBox.Position = UDim2.new(0, 310, 1, -42)
-fileNameBox.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
-fileNameBox.TextColor3 = Color3.fromRGB(200, 200, 200)
-fileNameBox.TextSize = 12
-fileNameBox.Font = Enum.Font.Code
-fileNameBox.PlaceholderText = "script_name.lua"
-fileNameBox.Text = ""
-fileNameBox.Parent = editorPanel
-
-local nameCorner = Instance.new("UICorner")
-nameCorner.CornerRadius = UDim.new(0, 6)
-nameCorner.Parent = fileNameBox
-
--------------------------------------------------------------------------
--- TAB 2: WORKSPACE FILE MANAGER PANEL
--------------------------------------------------------------------------
-local workspacePanel = Instance.new("Frame")
-workspacePanel.Size = UDim2.new(1, 0, 1, 0)
-workspacePanel.BackgroundTransparency = 1
-workspacePanel.Visible = false
-workspacePanel.Parent = container
-
-local fileListScroll = Instance.new("ScrollingFrame")
-fileListScroll.Size = UDim2.new(1, -20, 1, -20)
-fileListScroll.Position = UDim2.new(0, 10, 0, 10)
-fileListScroll.BackgroundTransparency = 1
-fileListScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
-fileListScroll.AutomaticCanvasSize = Enum.AutomaticSize.Y
-fileListScroll.ScrollBarThickness = 4
-fileListScroll.Parent = workspacePanel
-
-local fileListLayout = Instance.new("UIListLayout")
-fileListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-fileListLayout.Padding = UDim.new(0, 6)
-fileListLayout.Parent = fileListScroll
-
-fileListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-	fileListScroll.CanvasSize = UDim2.new(0, 0, 0, fileListLayout.AbsoluteContentSize.Y + 20)
-end)
-
--------------------------------------------------------------------------
--- TAB 3: SETTINGS PANEL
--------------------------------------------------------------------------
-local settingsPanel = Instance.new("Frame")
-settingsPanel.Size = UDim2.new(1, 0, 1, 0)
-settingsPanel.BackgroundTransparency = 1
-settingsPanel.Visible = false
-settingsPanel.Parent = container
-
-local settingsScroll = Instance.new("ScrollingFrame")
-settingsScroll.Size = UDim2.new(1, 0, 1, 0)
-settingsScroll.BackgroundTransparency = 1
-settingsScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
-settingsScroll.AutomaticCanvasSize = Enum.AutomaticSize.Y
-settingsScroll.ScrollBarThickness = 4
-settingsScroll.Parent = settingsPanel
-
-local settingsList = Instance.new("UIListLayout")
-settingsList.SortOrder = Enum.SortOrder.LayoutOrder
-settingsList.Padding = UDim.new(0, 8)
-settingsList.Parent = settingsScroll
-
-settingsList:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-	settingsScroll.CanvasSize = UDim2.new(0, 0, 0, settingsList.AbsoluteContentSize.Y + 20)
-end)
-
-local function createSectionHeader(text, parent)
-	local label = Instance.new("TextLabel")
-	label.Size = UDim2.new(1, -20, 0, 25)
-	label.BackgroundTransparency = 1
-	label.TextColor3 = Color3.fromRGB(0, 180, 255)
-	label.TextSize = 11
-	label.Font = Enum.Font.Code
-	label.TextXAlignment = Enum.TextXAlignment.Left
-	label.Text = "  " .. string.upper(text)
-	label.Parent = parent
-end
-
-local function createSettingToggle(text, defaultState, callback, parent)
-	local toggleContainer = Instance.new("Frame")
-	toggleContainer.Size = UDim2.new(1, -20, 0, 42)
-	toggleContainer.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-	toggleContainer.BorderSizePixel = 0
-	toggleContainer.Parent = parent
-	
-	local corner = Instance.new("UICorner")
-	corner.CornerRadius = UDim.new(0, 6)
-	corner.Parent = toggleContainer
-	
-	local label = Instance.new("TextLabel")
-	label.Size = UDim2.new(1, -65, 1, 0)
-	label.Position = UDim2.new(0, 14, 0, 0)
-	label.BackgroundTransparency = 1
-	label.TextColor3 = Color3.fromRGB(210, 210, 210)
-	label.TextSize = 12
-	label.Font = Enum.Font.Code
-	label.TextXAlignment = Enum.TextXAlignment.Left
-	label.Text = text
-	label.Parent = toggleContainer
-	
-	local toggleBtn = Instance.new("TextButton")
-	toggleBtn.Size = UDim2.new(0, 42, 0, 22)
-	toggleBtn.Position = UDim2.new(1, -52, 0.5, -11)
-	toggleBtn.BackgroundColor3 = defaultState and Color3.fromRGB(0, 180, 95) or Color3.fromRGB(45, 45, 45)
-	toggleBtn.Text = ""
-	toggleBtn.Parent = toggleContainer
-	
-	local btnCorner = Instance.new("UICorner")
-	btnCorner.CornerRadius = UDim.new(1, 0)
-	btnCorner.Parent = toggleBtn
-	
-	local active = defaultState
-	toggleBtn.MouseButton1Click:Connect(function()
-		active = not active
-		toggleBtn.BackgroundColor3 = active and Color3.fromRGB(0, 180, 95) or Color3.fromRGB(45, 45, 45)
-		pcall(function() callback(active) end)
-	end)
-end
-
-createSectionHeader("General Preferences", settingsScroll)
-createSettingToggle("Auto-Save Scripts on Exit", true, function(state) end, settingsScroll)
-createSettingToggle("Bypass Client Anti-Cheat Checks", true, function(state) end, settingsScroll)
-
-createSectionHeader("Workspace Storage", settingsScroll)
-createSettingToggle("Enable Workspace File Indexing", true, function(state) end, settingsScroll)
-
-createSectionHeader("Visual Status", settingsScroll)
-
-local statusCard = Instance.new("Frame")
-statusCard.Size = UDim2.new(1, -20, 0, 85)
-statusCard.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-statusCard.BorderSizePixel = 0
-statusCard.Parent = settingsScroll
-
-local cardCorner = Instance.new("UICorner")
-cardCorner.CornerRadius = UDim.new(0, 6)
-cardCorner.Parent = statusCard
-
-local cardStroke = Instance.new("UIStroke")
-cardStroke.Color = Color3.fromRGB(35, 35, 35)
-cardStroke.Parent = statusCard
-
-local statusIndicator = Instance.new("Frame")
-statusIndicator.Size = UDim2.new(0, 10, 0, 10)
-statusIndicator.Position = UDim2.new(0, 14, 0, 16)
-statusIndicator.BackgroundColor3 = Color3.fromRGB(0, 220, 100)
-statusIndicator.BorderSizePixel = 0
-statusIndicator.Parent = statusCard
-
-local indCorner = Instance.new("UICorner")
-indCorner.CornerRadius = UDim.new(1, 0)
-indCorner.Parent = statusIndicator
-
-local statusTitle = Instance.new("TextLabel")
-statusTitle.Size = UDim2.new(1, -40, 0, 20)
-statusTitle.Position = UDim2.new(0, 32, 0, 11)
-statusTitle.BackgroundTransparency = 1
-statusTitle.TextColor3 = Color3.fromRGB(240, 240, 240)
-statusTitle.TextSize = 12
-statusTitle.Font = Enum.Font.Code
-statusTitle.TextXAlignment = Enum.TextXAlignment.Left
-statusTitle.Text = "Directory Status: Active"
-statusTitle.Parent = statusCard
-
-local statusDesc = Instance.new("TextLabel")
-statusDesc.Size = UDim2.new(1, -30, 0, 40)
-statusDesc.Position = UDim2.new(0, 14, 0, 35)
-statusDesc.BackgroundTransparency = 1
-statusDesc.TextColor3 = Color3.fromRGB(140, 140, 140)
-statusDesc.TextSize = 11
-statusDesc.Font = Enum.Font.Code
-statusDesc.TextXAlignment = Enum.TextXAlignment.Left
-statusDesc.TextYAlignment = Enum.TextYAlignment.Top
-statusDesc.Text = "Path: JustruWorkspace/\nIndexed Files: 0 detected"
-statusDesc.Parent = statusCard
-
-local function updateStats()
-	pcall(function()
-		if listfiles then
-			local files = listfiles("JustruWorkspace")
-			local count = files and #files or 0
-			statusDesc.Text = "Path: JustruWorkspace/\nIndexed Files: " .. tostring(count) .. " detected"
-		else
-			statusDesc.Text = "Path: JustruWorkspace/\nIndexed Files: Not Supported"
-		end
-	end)
-end
-
--------------------------------------------------------------------------
--- INSTANT TAB SWITCHING SYSTEM
--------------------------------------------------------------------------
-local function switchTab(selectedPanel)
-	editorPanel.Visible = (selectedPanel == editorPanel)
-	workspacePanel.Visible = (selectedPanel == workspacePanel)
-	settingsPanel.Visible = (selectedPanel == settingsPanel)
-	
-	tabEditorBtn.TextColor3 = (selectedPanel == editorPanel) and Color3.fromRGB(0, 220, 130) or Color3.fromRGB(160, 160, 160)
-	tabWorkspaceBtn.TextColor3 = (selectedPanel == workspacePanel) and Color3.fromRGB(0, 220, 130) or Color3.fromRGB(160, 160, 160)
-	tabSettingsBtn.TextColor3 = (selectedPanel == settingsPanel) and Color3.fromRGB(0, 220, 130) or Color3.fromRGB(160, 160, 160)
-	
-	if selectedPanel == settingsPanel then
-		updateStats()
-	end
-end
-
-tabEditorBtn.MouseButton1Click:Connect(function() switchTab(editorPanel) end)
-tabWorkspaceBtn.MouseButton1Click:Connect(function() switchTab(workspacePanel) end)
-tabSettingsBtn.MouseButton1Click:Connect(function() switchTab(settingsPanel) end)
-
--------------------------------------------------------------------------
--- FILE SYSTEM & EDITOR LOGIC
--------------------------------------------------------------------------
-toggleIcon.MouseButton1Click:Connect(function()
-	mainFrame.Visible = not mainFrame.Visible
-end)
-
-local function refreshFileList()
-	for _, child in ipairs(fileListScroll:GetChildren()) do
-		if child:IsA("TextButton") then
-			child:Destroy()
-		end
-	end
-
-	pcall(function()
-		if listfiles then
-			local files = listfiles("JustruWorkspace")
-			if files then
-				for _, filePath in ipairs(files) do
-					local fileName = filePath:match("([^/]+)$") or filePath:match("([^\\]+)$")
-					
-					local fileBtn = Instance.new("TextButton")
-					fileBtn.Size = UDim2.new(1, 0, 0, 34)
-					fileBtn.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
-					fileBtn.TextColor3 = Color3.fromRGB(210, 210, 210)
-					fileBtn.TextSize = 12
-					fileBtn.Font = Enum.Font.Code
-					fileBtn.Text = "  📂 " .. (fileName or filePath)
-					fileBtn.TextXAlignment = Enum.TextXAlignment.Left
-					fileBtn.Parent = fileListScroll
-
-					local btnCorner = Instance.new("UICorner")
-					btnCorner.CornerRadius = UDim.new(0, 6)
-					btnCorner.Parent = fileBtn
-
-					fileBtn.MouseButton1Click:Connect(function()
-						pcall(function()
-							if readfile then
-								local content = readfile(filePath)
-								if content then
-									codeBox.Text = content
-									fileNameBox.Text = fileName
-									switchTab(editorPanel)
-								end
-							end
-						end)
-					end)
-				end
-			end
-		end
-	end)
-end
-
-tabWorkspaceBtn.MouseButton1Click:Connect(function()
-	switchTab(workspacePanel)
-	refreshFileList()
-end)
-
-saveBtn.MouseButton1Click:Connect(function()
-	local fileName = fileNameBox.Text
-	if fileName == "" then
-		fileName = "script_" .. math.random(1000, 9999) .. ".lua"
-		fileNameBox.Text = fileName
-	end
-	
-	if not string.match(fileName, "%.lua$") then
-		fileName = fileName .. ".lua"
-	end
-
-	pcall(function()
-		if writefile then
-			writefile("JustruWorkspace/" .. fileName, codeBox.Text)
-			refreshFileList()
-		else
-			codeBox.Text = "-- Error: writefile is not supported on this executor."
-		end
-	end)
-end)
-
-executeBtn.MouseButton1Click:Connect(function()
-	local source = codeBox.Text
-	local func, err = loadstring(source)
-	if func then
-		pcall(func)
-	else
-		warn("[Compile Error]: " .. tostring(err))
-	end
-end)
-
--- Justru Script Hub Execution Link
-scriptHubBtn.MouseButton1Click:Connect(function()
-	pcall(function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/putrijelitaasia10-byte/JustruScriptzHub/refs/heads/main/JustruScriptzHubz"))()
-	end)
-end)
-
-clearBtn.MouseButton1Click:Connect(function()
-	codeBox.Text = ""
-	fileNameBox.Text = ""
-end)
-
--------------------------------------------------------------------------
--- DRAGGING LOGIC FOR MAIN WINDOW
--------------------------------------------------------------------------
-local dragging, dragStart, startPos
-topBar.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-		dragging = true
-		dragStart = input.Position
-		startPos = mainFrame.Position
-	end
-end)
-
-UserInputService.InputChanged:Connect(function(input)
-	if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-		local delta = input.Position - dragStart
-		mainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-	end
-end)
-
-UserInputService.InputEnded:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-		dragging = false
-	end
-end)
