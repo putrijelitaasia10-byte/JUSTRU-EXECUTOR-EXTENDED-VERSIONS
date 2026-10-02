@@ -1,9 +1,11 @@
--- Justru Executor // Core System (Clean Version)
+-- Justru Executor // Core System
 
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
 local CoreGui = game:GetService("CoreGui")
 local localPlayer = Players.LocalPlayer
+local camera = workspace.CurrentCamera
 
 -- Safe Workspace Folder Initialization
 pcall(function()
@@ -86,7 +88,7 @@ titleLabel.TextColor3 = Color3.fromRGB(240, 240, 240)
 titleLabel.TextSize = 13
 titleLabel.Font = Enum.Font.Code
 titleLabel.TextXAlignment = Enum.TextXAlignment.Left
-titleLabel.Text = "⚡ JUSTRU // EXPLOIT CORE [NOTEBOOK SOURCES]"
+titleLabel.Text = "⚡ JUSTRU // EXPLOIT CORE"
 titleLabel.Parent = topBar
 
 local closeBtn = Instance.new("TextButton")
@@ -133,7 +135,7 @@ end
 
 local tabEditorBtn = createNavButton("TabEditor", "💻 Editor", 1)
 local tabWorkspaceBtn = createNavButton("TabWorkspace", "📂 Workspace", 2)
-local tabSettingsBtn = createNavButton("TabSettings", "⚙️ Settings", 3)
+local tabSettingsBtn = createNavButton("TabSettings", "⚙️️ Settings", 3)
 
 -- Content Container Frame
 local container = Instance.new("Frame")
@@ -157,18 +159,26 @@ utilityBar.Position = UDim2.new(0, 10, 0, 10)
 utilityBar.BackgroundTransparency = 1
 utilityBar.Parent = editorPanel
 
-local dexBtn = Instance.new("TextButton")
-dexBtn.Size = UDim2.new(0, 130, 0, 32)
-dexBtn.BackgroundColor3 = Color3.fromRGB(65, 30, 100)
-dexBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-dexBtn.TextSize = 12
-dexBtn.Font = Enum.Font.Code
-dexBtn.Text = "🔍 Dex Explorer"
-dexBtn.Parent = utilityBar
+local utilityList = Instance.new("UIListLayout")
+utilityList.FillDirection = Enum.FillDirection.Horizontal
+utilityList.SortOrder = Enum.SortOrder.LayoutOrder
+utilityList.Padding = UDim.new(0, 8)
+utilityList.Parent = utilityBar
 
-local dexCorner = Instance.new("UICorner")
-dexCorner.CornerRadius = UDim.new(0, 6)
-dexCorner.Parent = dexBtn
+-- Justru Script Hub Button
+local scriptHubBtn = Instance.new("TextButton")
+scriptHubBtn.Size = UDim2.new(0, 165, 0, 32)
+scriptHubBtn.BackgroundColor3 = Color3.fromRGB(30, 80, 60)
+scriptHubBtn.TextColor3 = Color3.fromRGB(0, 255, 170)
+scriptHubBtn.TextSize = 12
+scriptHubBtn.Font = Enum.Font.Code
+scriptHubBtn.Text = "🚀 Justru Script Hub"
+scriptHubBtn.LayoutOrder = 1
+scriptHubBtn.Parent = utilityBar
+
+local scriptHubCorner = Instance.new("UICorner")
+scriptHubCorner.CornerRadius = UDim.new(0, 6)
+scriptHubCorner.Parent = scriptHubBtn
 
 local codeBox = Instance.new("TextBox")
 codeBox.Size = UDim2.new(1, -20, 0, 215)
@@ -360,13 +370,10 @@ createSectionHeader("General Preferences", settingsScroll)
 createSettingToggle("Auto-Save Scripts on Exit", true, function(state) end, settingsScroll)
 createSettingToggle("Bypass Client Anti-Cheat Checks", true, function(state) end, settingsScroll)
 
--------------------------------------------------------------------------
--- NOTEBOOK SOURCES & STORAGE
--------------------------------------------------------------------------
-createSectionHeader("Notebook Sources & Storage", settingsScroll)
+createSectionHeader("Workspace Storage", settingsScroll)
 createSettingToggle("Enable Workspace File Indexing", true, function(state) end, settingsScroll)
 
-createSectionHeader("Visual Status // Notebook Sources", settingsScroll)
+createSectionHeader("Visual Status", settingsScroll)
 
 local statusCard = Instance.new("Frame")
 statusCard.Size = UDim2.new(1, -20, 0, 85)
@@ -416,7 +423,7 @@ statusDesc.TextYAlignment = Enum.TextYAlignment.Top
 statusDesc.Text = "Path: JustruWorkspace/\nIndexed Files: 0 detected"
 statusDesc.Parent = statusCard
 
-local function updateNotebookStats()
+local function updateStats()
 	pcall(function()
 		if listfiles then
 			local files = listfiles("JustruWorkspace")
@@ -441,7 +448,7 @@ local function switchTab(selectedPanel)
 	tabSettingsBtn.TextColor3 = (selectedPanel == settingsPanel) and Color3.fromRGB(0, 220, 130) or Color3.fromRGB(160, 160, 160)
 	
 	if selectedPanel == settingsPanel then
-		updateNotebookStats()
+		updateStats()
 	end
 end
 
@@ -538,9 +545,10 @@ executeBtn.MouseButton1Click:Connect(function()
 	end
 end)
 
-dexBtn.MouseButton1Click:Connect(function()
+-- Justru Script Hub Execution Link
+scriptHubBtn.MouseButton1Click:Connect(function()
 	pcall(function()
-		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Dex-PlusPlus-Decompiler-Fix-206651"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/putrijelitaasia10-byte/JustruScriptzHub/refs/heads/main/JustruScriptzHubz"))()
 	end)
 end)
 
@@ -549,9 +557,10 @@ clearBtn.MouseButton1Click:Connect(function()
 	fileNameBox.Text = ""
 end)
 
--- Delta-Compatible Draggable Window Logic
+-------------------------------------------------------------------------
+-- DRAGGING LOGIC FOR MAIN WINDOW
+-------------------------------------------------------------------------
 local dragging, dragStart, startPos
-
 topBar.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 		dragging = true
